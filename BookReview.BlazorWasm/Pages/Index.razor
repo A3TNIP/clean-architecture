@@ -1,0 +1,28 @@
+﻿@page "/"
+@using CleanArchitecture.Domain.Entities
+@inherits BookReview.BlazorWasm.Base.BaseComponent<CleanArchitecture.Domain.Entities.Employee>
+
+<PageTitle>Index</PageTitle>
+
+@foreach (var employee in Employees)
+{
+    <p>@employee.Id.ToString()</p>
+}
+
+
+<h1>Hello, world!</h1>
+
+Welcome to your new app.
+
+<SurveyPrompt Title="How is Blazor working for you?" />
+
+
+@code
+{
+    private List<Employee> Employees = new();
+
+    protected override void OnInitialized()
+    {
+        Employees = GetAll();
+    }
+}
